@@ -1,0 +1,27 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins/media";
+
+
+$color: $color-base;
+
+.top-menu{
+    width: $content-width;
+    margin: 0 auto;
+
+    ul{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        list-style: none;
+    }
+    li{
+        width: auto;
+        height: auto;
+        padding: 10px 25px 10px 0;
+    }
+    a{
+        color: $color;
+        text-decoration: none;
+    }
+}

@@ -4,12 +4,13 @@ const fs = require('fs'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
-    TerserPlugin = require('terser-webpack-plugin'),
-    BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+    TerserPlugin = require('terser-webpack-plugin')/*,
+    BrowserSyncPlugin = require('browser-sync-webpack-plugin')*/;
 
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
+
 
 const myPath = {
     html: {
@@ -30,23 +31,27 @@ const config = {
     context: path.resolve(__dirname, 'frontend'),
     entry: {
         homepage: path.resolve(__dirname, 'frontend/scripts/homepage.js'),
-        page: path.resolve(__dirname, 'frontend/scripts/page.js')
+        page: path.resolve(__dirname, 'frontend/scripts/page.js'),
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'public/assets/build'),
+        path: path.resolve(__dirname, isDev ? 'public/assets/build-dev' : 'public/assets/build'),
+        publicPath: path.resolve( __dirname, isDev ? '/assets/build-dev' : '/assets/build')
     },
     plugins: [
-        // new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            verbose: false,
+            dangerouslyAllowCleanPatternsOutsideProject: true
+        }),
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
-        new BrowserSyncPlugin({
+        /*new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
             server: {baseDir: [myPath.dist]},
             open: false,
-        })
+        })*/
     ],
     module: {
         rules: [
@@ -62,12 +67,12 @@ const config = {
             },
             {
                 test: /\.twig$/,
-                use: ["twig-loader"]
+                use: ["twig-loader"],
             },
         ]
     },
     optimization: {
-        // runtimeChunk: false,
+        runtimeChunk: false,
         minimize: isProd,
         minimizer: [
             new CssMinimizerPlugin({

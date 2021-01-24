@@ -1,5 +1,8 @@
 @import '~normalize.css';
 
 @import 'mixins/media';
+@import 'mixins/grid';
 @import 'variables';
+
+@import 'base';
 @import 'layout';

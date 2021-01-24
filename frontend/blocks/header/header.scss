@@ -1,4 +1,6 @@
-@import '../../styles/mixins/media';
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
 
 /* header.scss */
 .header {
@@ -7,13 +9,20 @@
     width: 100%;
 
     &-top {
-        height: 30px;
+
         background-color: #ccc;
     }
 
     &-middle {
-        height: 100px;
-        background-color: green;
+        background: #eee;
+        >div{
+            display: flex;
+            align-items: center;
+            width: $content-width;
+            margin: 0 auto;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
     }
 
     &-bottom {
@@ -21,4 +30,34 @@
         background-color: black;
     }
 
+    &-contacts{
+        ul{
+            list-style: none;
+            margin: 0;
+            @include grid($gap-content);
+        }
+        li{
+            @include grid-col(1/2, $gap-content);
+            display: flex;
+            flex-direction: column;
+            font-size: 0.9em;
+        }
+        &__name{
+            width: 100%;
+            font-size: 0.8em;
+            color: $color-second;
+            margin-bottom: 0.2em;
+        }
+    }
+
+    &-buttons{
+
+    }
+
+}
+
+.logo{
+    width: 150px;
+    height: 60px;
+    background-color: #ccc;
 }

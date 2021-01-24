@@ -1,6 +1,15 @@
 {% extends "../base/base.twig" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="./assets/build-dev/homepage.css">
+{% endblock %}
+
 {% block content %}
     <h1>Наконец-то заработало!</h1>
     <h2>Index Page</h2>
     <h2>Тестовый подзаголовок</h2>
+{% endblock %}
+
+{% block scripts %}
+    <script src="./assets/build-dev/homepage.js"></script>
 {% endblock %}

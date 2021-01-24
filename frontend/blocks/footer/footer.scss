@@ -1,21 +1,67 @@
+@import '../../styles/variables';
 @import '../../styles/mixins/media';
+@import '../../styles/mixins/grid';
 
+
+@mixin content{
+    width: $content-width;
+    margin: 0 auto;
+}
 /* footer.scss */
-footer{
-    display: block;
-    width: 100px;
+.footer{
+    margin-top: auto;
+
+    &-top{
+        background: #ccc;
+        >div{
+            @include content;
+
+            width: $content-width;
+            margin: 0 auto;
+        }
+    }
+
+    &-middle{
+        padding: 20px 0;
+        background: #eee;
+        >div{
+            @include content;
+            display: flex;
+
+            >div{
+                width: 25%;
+            }
+        }
+    }
+
+    &-bottom{
+        text-align: center;
+        color: white;
+        background: black;
+        padding: 10px 0;
+        >div{
+            @include content;
+        }
+    }
+
+}
 
 
-    @include mediaMin(800px){
+.footer-top-menu{
+    ul{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        list-style: none;
+    }
+    li{
         width: auto;
-        background-color: black;
+        height: auto;
+        padding: 10px 25px 10px 0;
     }
-
-    @include mediaMin(320px){
-        background-color: yellow;
-    }
-
-    @include mediaMax(500px){
-        background-color: pink;
+    a{
+        color: $color-base;
+        text-decoration: none;
     }
 }

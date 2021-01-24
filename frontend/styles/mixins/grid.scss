@@ -1,0 +1,16 @@
+@mixin grid($gap){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: -#{$gap/2};
+    margin-right: -#{$gap/2};
+    align-items: flex-start;
+    padding: 0;
+}
+
+@mixin grid-col($size, $gap){
+    width: calc( 50% - #{$gap} );
+    margin-left: #{$gap/2};
+    margin-right: #{$gap/2};
+    margin-bottom: #{$gap/2};
+}
