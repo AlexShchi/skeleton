@@ -1,0 +1,35 @@
+@import 'variables';
+
+.color {
+    &-base {
+        color: $color-base
+    }
+
+    &-second {
+        color: $color-second;
+
+    }
+
+    &-inverse {
+        color: $color-inverse;
+        background: black;
+    }
+}
+
+.bg{
+    &-1{
+       background: $bg-1;
+    }
+    &-2{
+        background: $bg-2;
+    }
+    &-3{
+        background: $bg-3;
+    }
+}
+
+label{
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+}

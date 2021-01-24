@@ -1,0 +1,56 @@
+@import "../variables";
+
+$color: $color-inverse;
+$bg: $color-base;
+$border-radius: 0.625em;
+$font-size: $font-size-base;
+
+.btn {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 8px 20px;
+    font-size: $font-size;
+    text-decoration: none;
+    color: $color;
+    border-radius: $border-radius;
+    background: $bg;
+    border: 1px solid $bg;
+    transition: background-color 0.3s, color 0.3s;
+
+    @include mediaHover {
+        &:hover {
+            background: $color-inverse;
+            color: $color-base;
+        }
+    }
+
+}
+
+.btn{
+    &-second{
+        @extend .btn;
+        background: $color-inverse;
+        color: $color-base;
+
+        @include mediaHover {
+            &:hover {
+                color: $color-inverse;
+                background: $color-base;
+            }
+        }
+    }
+    &-third{
+        @extend .btn;
+        background: $color-second;
+        color: $color-base;
+        border-color: $color-second;
+
+        @include mediaHover {
+            &:hover {
+                color: $color-inverse;
+                background: $color-base;
+            }
+        }
+    }
+}

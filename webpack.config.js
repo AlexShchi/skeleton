@@ -4,8 +4,8 @@ const fs = require('fs'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
-    TerserPlugin = require('terser-webpack-plugin')/*,
-    BrowserSyncPlugin = require('browser-sync-webpack-plugin')*/;
+    TerserPlugin = require('terser-webpack-plugin'),
+    BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -36,7 +36,7 @@ const config = {
     output: {
         filename: '[name].js',
         path: path.resolve(__dirname, isDev ? 'public/assets/build-dev' : 'public/assets/build'),
-        publicPath: path.resolve( __dirname, isDev ? '/assets/build-dev' : '/assets/build')
+        publicPath: path.resolve(__dirname, isDev ? '/assets/build-dev' : '/assets/build')
     },
     plugins: [
         new CleanWebpackPlugin({
@@ -46,12 +46,6 @@ const config = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
-        /*new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: {baseDir: [myPath.dist]},
-            open: false,
-        })*/
     ],
     module: {
         rules: [
@@ -59,9 +53,9 @@ const config = {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: {sourceMap: isDev} },
-                    { loader: 'postcss-loader', options: {sourceMap: isDev} },
-                    { loader: 'sass-loader', options: {sourceMap: isDev} },
+                    {loader: 'css-loader', options: {sourceMap: isDev}},
+                    {loader: 'postcss-loader', options: {sourceMap: isDev}},
+                    {loader: 'sass-loader', options: {sourceMap: isDev}},
 
                 ]
             },
@@ -91,6 +85,16 @@ if (isProd) {
         exclude: /node_modules/,
         use: ['babel-loader'],
     })
+}
+if (isDev) {
+    config.plugins.push(
+        new BrowserSyncPlugin({
+            host: 'localhost',
+            port: 3000,
+            server: {baseDir: [myPath.dist]},
+            open: false,
+        })
+    );
 }
 
 

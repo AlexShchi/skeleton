@@ -1,12 +1,124 @@
 {% extends "../base/base.twig" %}
 {% block content %}
-    <h1>Основные элементя оформления сайта</h1>
-    <h2>Цвета</h2>
+    <h1>Основные элементы оформления сайта</h1>
+    <hr>
+    <h1>Заголовок первого уровня h1</h1>
+    <h2>Заголовок второго уровня h2</h2>
+    <h3>Заголовок третьего уровня h3</h3>
+    <hr>
     <table>
         <tr>
-            <td>Основной цвет текта ($color-base)</td>
-            <td>Второй цвет для текста ($color-second)</td>
-            <td>Инвертированный цвет текста ($color-inverse)</td>
+            <td>
+                <h2>Цвета текста</h2>
+                <table>
+                    <tr>
+                        <td>Основной цвет текта</td>
+                        <td>Второй цвет для текста</td>
+                        <td>Инвертированный цвет текста</td>
+                    </tr>
+                    <tr>
+                        <td class="color-base" height="60">$color-base</td>
+                        <td class="color-second">$color-second</td>
+                        <td class="color-inverse">$color-inverse</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <h2>Цвета сайта</h2>
+                <table>
+                    <tr>
+                        <td>Цвет 1</td>
+                        <td>Цвет 2</td>
+                        <td>Цвет 3</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-1" height="60" width="120"></td>
+                        <td class="bg-2" width="120"></td>
+                        <td class="bg-3" width="120"></td>
+                    </tr>
+                </table>
+            </td>
         </tr>
     </table>
+    <hr>
+    <h2>Кнопки</h2>
+    <table>
+        <tr>
+            <td><button class="btn">Основная кнопка</button></td>
+            <td><button class="btn-second">Вторая кнопка</button></td>
+            <td><button class="btn-third">Третья кнопки</button></td>
+        </tr>
+        <tr>
+            <td><a href="#" class="btn">Основная кнопка</a></td>
+            <td><a href="#" class="btn-second">Вторая кнопка</a></td>
+            <td><a href="#" class="btn-third">Третья кнопка</a></td>
+        </tr>
+    </table>
+    <hr>
+    <h2>Формы</h2>
+    <form action="">
+
+        <table>
+            <tr>
+                <th>type="text/tel/mail"</th>
+                <th>textarea</th>
+                <th>radio</th>
+                <th>checkbox</th>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        <input type="text" placeholder="type='text'">
+                    </div>
+                    <div>
+                        <input type="tel"      placeholder="type='tel'">
+                    </div>
+                    <div>
+                        <input type="password" placeholder="type='password'">
+                    </div>
+                    <div>
+                        <input type="email"    placeholder="type='email'">
+                    </div>
+                    <div>
+                        <input type="search"   placeholder="type='search'">
+                    </div>
+                </th>
+                <th>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </th>
+                <th>
+                    <label for="first">
+                        <input id="first" type="radio" name="radio">
+                        первый
+                    </label>
+                    <label for="second">
+                        <input id="second" type="radio" name="radio">
+                        второй
+                    </label>
+                    <label for="fird">
+                        <input id="fird" type="radio" name="radio">
+                        третий
+                    </label>
+                </th>
+                <th>
+                    <label for="ch-one">
+                        <input id="ch-two" type="checkbox">
+                        Первый
+                    </label>
+                    <label for="ch-two">
+                        <input id="ch-two" type="checkbox">
+                        Второй
+                    </label>
+                    <label for="ch-three">
+                        <input id="ch-three" type="checkbox">
+                        Третий
+                    </label>
+                </th>
+            </tr>
+        </table>
+
+    </form>
+    <hr>
+
+
 {% endblock %}
