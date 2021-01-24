@@ -1,0 +1,6 @@
+.idea
+node_modules
+favicon.twig
+favicon.svg
+/html
+public

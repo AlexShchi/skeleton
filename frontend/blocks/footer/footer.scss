@@ -1,0 +1,21 @@
+@import '../../styles/mixins/media';
+
+/* footer.scss */
+footer{
+    display: block;
+    width: 100px;
+
+
+    @include mediaMin(800px){
+        width: auto;
+        background-color: black;
+    }
+
+    @include mediaMin(320px){
+        background-color: yellow;
+    }
+
+    @include mediaMax(500px){
+        background-color: pink;
+    }
+}

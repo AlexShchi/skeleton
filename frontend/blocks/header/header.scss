@@ -1,0 +1,24 @@
+@import '../../styles/mixins/media';
+
+/* header.scss */
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-top {
+        height: 30px;
+        background-color: #ccc;
+    }
+
+    &-middle {
+        height: 100px;
+        background-color: green;
+    }
+
+    &-bottom {
+        height: 40px;
+        background-color: black;
+    }
+
+}
