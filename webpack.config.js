@@ -5,6 +5,8 @@ const fs = require('fs'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     TerserPlugin = require('terser-webpack-plugin'),
+    ImageminWebpack = require('image-minimizer-webpack-plugin'),
+    CopyPlugin = require("copy-webpack-plugin"),
     BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 
@@ -46,6 +48,33 @@ const config = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
         }),
+        new CopyPlugin({
+            patterns: [
+                { from: "./fonts", to: "../fonts" },
+                { from: "./images", to: "../images" },
+            ]
+        }),
+        new ImageminWebpack({
+            minimizerOptions: {
+                // Lossless optimization with custom option
+                // Feel free to experiment with options for better result for you
+                plugins: [
+                    ['gifsicle', { interlaced: true }],
+                    ['jpegtran', { progressive: true }],
+                    ['optipng', { optimizationLevel: 5 }],
+                    [
+                        'svgo',
+                        {
+                            plugins: [
+                                {
+                                    removeViewBox: false,
+                                },
+                            ],
+                        },
+                    ],
+                ],
+            },
+        }),
     ],
     module: {
         rules: [
@@ -62,6 +91,20 @@ const config = {
             {
                 test: /\.twig$/,
                 use: ["twig-loader"],
+            },
+            {
+                test: /\.html$/,
+                type: 'asset/source',
+                // include: path.resolve(__dirname, myPath.html.resolve),
+                // use: ['raw-loader'],
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader', // Or `url-loader` or your other loader
+                    },
+                ],
             },
         ]
     },
