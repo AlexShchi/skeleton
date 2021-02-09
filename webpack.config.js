@@ -1,35 +1,28 @@
+const options = require('./options.webpack.config');
+
 const fs = require('fs'),
     path = require('path'),
     {CleanWebpackPlugin} = require('clean-webpack-plugin'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     TerserPlugin = require('terser-webpack-plugin'),
     ImageminWebpack = require('image-minimizer-webpack-plugin'),
-    CopyPlugin = require("copy-webpack-plugin"),
-    BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+    CopyPlugin = require("copy-webpack-plugin");
 
-
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = !isDev;
-
-
-const myPath = {
-    html: {
-        entry: [path.resolve(__dirname, './frontend/html/pages')],
-        resolve: path.resolve(__dirname, 'frontend/html/**/'),
-    },
-    dist: path.resolve(__dirname, './public'),
-};
 
 const config = {
+    target: 'node',
+    experiments: {
+        asset: true
+    },
     // stats: 'none',
     // watch: true,
-    // watchOptions:{
-    //     poll: true,
-    //     ignored: ['node_modules/'],
-    // },
-    mode: isDev ? 'development' : 'production',
+    watchOptions:{
+        poll: true,
+        ignored: ['node_modules/'],
+        // aggregateTimeout: 200,
+    },
+    mode: options.isDev ? 'development' : 'production',
     context: path.resolve(__dirname, 'frontend'),
     entry: {
         homepage: path.resolve(__dirname, 'frontend/scripts/homepage.js'),
@@ -37,8 +30,13 @@ const config = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, isDev ? 'public/assets/build-dev' : 'public/assets/build'),
-        publicPath: path.resolve(__dirname, isDev ? '/assets/build-dev' : '/assets/build')
+        path: path.resolve(__dirname, options.isDev ? 'public/assets/build-dev' : 'public/assets/build'),
+        publicPath: path.resolve(__dirname, options.isDev ? '/public/assets/build-dev' : '/public/assets/build')
+    },
+    resolve:{
+        alias: {
+            "images": path.resolve(__dirname,'frontend/images/')
+        }
     },
     plugins: [
         new CleanWebpackPlugin({
@@ -56,8 +54,6 @@ const config = {
         }),
         new ImageminWebpack({
             minimizerOptions: {
-                // Lossless optimization with custom option
-                // Feel free to experiment with options for better result for you
                 plugins: [
                     ['gifsicle', { interlaced: true }],
                     ['jpegtran', { progressive: true }],
@@ -79,42 +75,22 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.scss$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {loader: 'css-loader', options: {sourceMap: isDev}},
-                    {loader: 'postcss-loader', options: {sourceMap: isDev}},
-                    {loader: 'sass-loader', options: {sourceMap: isDev}},
-
-                ]
-            },
-            {
                 test: /\.twig$/,
                 use: ["twig-loader"],
             },
             {
                 test: /\.html$/,
-                type: 'asset/source',
-                // include: path.resolve(__dirname, myPath.html.resolve),
-                // use: ['raw-loader'],
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader', // Or `url-loader` or your other loader
-                    },
-                ],
+                type: 'asset/source'
             },
         ]
     },
     optimization: {
         runtimeChunk: false,
-        minimize: isProd,
+        minimize: options.isProd,
         minimizer: [
             new CssMinimizerPlugin({
                 parallel: true,
-                sourceMap: isDev,
+                sourceMap: options.isDev,
             }),
             new TerserPlugin()
         ]
@@ -122,63 +98,38 @@ const config = {
 
 }
 
-if (isProd) {
+if (options.isProd) {
+    console.log('isProd');
     config.module.rules.push({
         test: /\.js$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-    })
-}
-if (isDev) {
-    config.plugins.push(
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: {baseDir: [myPath.dist]},
-            open: false,
-        })
-    );
-}
-
-
-const generateHtmlPlugins = (templateDir) => {
-    const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
-    return templateFiles
-        .filter((item) => item.split('.')[0][0] !== '_')
-        .map((item) => {
-            const parts = item.split('.');
-            const name = parts[0];
-            const extension = parts[1];
-            return new HtmlWebpackPlugin({
-                filename: `../../${name}.html`,
-                template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
-                inject: false,
-            });
-        });
-}
-
-const htmlPlugins = (() => {
-    let results = [];
-    myPath.html.entry.forEach((item) => {
-        results = results.concat(generateHtmlPlugins(item));
     });
-    return results;
-})();
 
-config.plugins = config.plugins.concat(htmlPlugins);
+    config.module.rules.push({
+        test: /\.scss$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            {loader: 'css-loader', options: {sourceMap: options.isDev, url: false}},
+            {loader: 'postcss-loader', options: {sourceMap: options.isDev}},
+            {loader: 'sass-loader', options: {sourceMap: options.isDev}},
+        ]
+    });
 
+}
 
-// config.devServer = {
-//     contentBase: path.resolve(__dirname + '/public/' ),
-//     // open: 'Google Chrome',
-//     publicPath: path.resolve(__dirname + '/public/'),
-//     writeToDisk: true,
-//     // compress: true,
-//     port: 9000,
-//     // index: './publick/text-page.html'
-// }
+if(options.isDev){
+    console.log('isDev');
+    config.module.rules.push({
+        test: /\.scss$/,
+        use: [
+            MiniCssExtractPlugin.loader,
+            {loader: 'css-loader', options: {sourceMap: options.isDev, url: false}},
+            {loader: 'sass-loader', options: {sourceMap: options.isDev}},
+        ]
+    });
+    config.entry.ui = path.resolve(__dirname, 'frontend/scripts/ui.js');
+}
+
 
 module.exports = config;
-
-//TODO: подключить сортировку медиазапросов,
-// настроить watcher,

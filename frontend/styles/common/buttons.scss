@@ -1,7 +1,7 @@
 @import "../variables";
 
-$color: $color-inverse;
-$bg: $color-base;
+$color: $color-2;
+$bg: $color-1;
 $border-radius: 0.625em;
 $font-size: $font-size-base;
 
@@ -20,8 +20,8 @@ $font-size: $font-size-base;
 
     @include mediaHover {
         &:hover {
-            background: $color-inverse;
-            color: $color-base;
+            background: $color;
+            color: $color-1;
         }
     }
 
@@ -30,26 +30,26 @@ $font-size: $font-size-base;
 .btn{
     &-second{
         @extend .btn;
-        background: $color-inverse;
-        color: $color-base;
+        background: $color-2;
+        color: $color-1;
 
         @include mediaHover {
             &:hover {
-                color: $color-inverse;
-                background: $color-base;
+                color: $color-3;
+                background: $color-1;
             }
         }
     }
     &-third{
         @extend .btn;
-        background: $color-second;
-        color: $color-base;
-        border-color: $color-second;
+        background: $color-2;
+        color: $color-1;
+        border-color: $color-2;
 
         @include mediaHover {
             &:hover {
-                color: $color-inverse;
-                background: $color-base;
+                color: $color-3;
+                background: $color-1;
             }
         }
     }

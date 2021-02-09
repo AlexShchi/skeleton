@@ -16,11 +16,17 @@
 </head>
 <body>
 
-    <div class="l-main">
+    <div class="l-header">
         {% include '../../blocks/header/header.twig' %}
+    </div>
+
+    <div class="l-main">
         <div class="l-content">
-           {% block content %}{% endblock %}
+            {% block content %}{% endblock %}
         </div>
+    </div>
+
+    <div class="l-footer">
         {% include '../../blocks/footer/footer.twig' %}
     </div>
 

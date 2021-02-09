@@ -2,29 +2,29 @@
 
 .color {
     &-base {
-        color: $color-base
+        color: $color-1
     }
 
     &-second {
-        color: $color-second;
+        color: $color-2;
 
     }
 
     &-inverse {
-        color: $color-inverse;
+        color: $color-3;
         background: black;
     }
 }
 
 .bg{
     &-1{
-       background: $bg-1;
+       background: $color-1;
     }
     &-2{
-        background: $bg-2;
+        background: $color-2;
     }
     &-3{
-        background: $bg-3;
+        background: $color-3;
     }
 }
 

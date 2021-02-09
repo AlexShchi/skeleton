@@ -34,10 +34,10 @@
         ul{
             list-style: none;
             margin: 0;
-            @include grid($gap-content);
+            @include grid($content-gap);
         }
         li{
-            @include grid-col(1/2, $gap-content);
+            @include grid-col(1/2, $content-gap);
             display: flex;
             flex-direction: column;
             font-size: 0.9em;
@@ -45,7 +45,7 @@
         &__name{
             width: 100%;
             font-size: 0.8em;
-            color: $color-second;
+            color: $color-2;
             margin-bottom: 0.2em;
         }
     }

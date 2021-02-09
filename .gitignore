@@ -1,4 +1,5 @@
 .idea
+.yarn
 node_modules
 favicon.twig
 favicon.svg

@@ -1,1 +1,4 @@
-import './common'
+import './common';
+
+/* blocks */
+import '../blocks/hero/hero';
