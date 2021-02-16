@@ -5,7 +5,8 @@
     transform: translate(-50%, 0);
 }
 @mixin content(){
-    max-width: 1200px;
+    max-width: $content-width+$content-gap;
     width: 100%;
     margin: 0 auto;
+    padding: 0 $content-gap;
 }
