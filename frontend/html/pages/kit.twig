@@ -1,4 +1,9 @@
 {% extends "../base/base.twig" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="./assets/build-dev/ui.css">
+{% endblock %}
+
 {% block content %}
     <h1>Основные элементы оформления сайта</h1>
     <hr>
@@ -68,23 +73,35 @@
             <tr>
                 <th>
                     <div>
-                        <input type="text" placeholder="type='text'">
+                        <label>
+                            <input type="text" placeholder="type='text'">
+                        </label>
                     </div>
                     <div>
-                        <input type="tel"      placeholder="type='tel'">
+                        <label>
+                            <input type="tel"      placeholder="type='tel'">
+                        </label>
                     </div>
                     <div>
-                        <input type="password" placeholder="type='password'">
+                        <label>
+                            <input type="password" placeholder="type='password'">
+                        </label>
                     </div>
                     <div>
-                        <input type="email"    placeholder="type='email'">
+                        <label>
+                            <input type="email"    placeholder="type='email'">
+                        </label>
                     </div>
                     <div>
-                        <input type="search"   placeholder="type='search'">
+                        <label>
+                            <input type="search"   placeholder="type='search'">
+                        </label>
                     </div>
                 </th>
                 <th>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <label>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </label>
                 </th>
                 <th>
                     <label for="first">
@@ -121,5 +138,8 @@
 
     <hr>
 
+    {% block scripts %}
+        <script src="./assets/build-dev/page.js"></script>
+    {% endblock %}
 
 {% endblock %}

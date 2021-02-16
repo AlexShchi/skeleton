@@ -1,5 +1,4 @@
-const path = require('path'),
-    fs = require('fs');
+const fs = require('fs');
 
 
 const dist = '/frontend/blocks/'
@@ -54,7 +53,10 @@ function buildPath(dist, blockPath, name, extention){
     if( extention === 'js'){
         content = `import "./${name}.scss";`;
     } else if(extention === 'scss') {
-        content = `@import "../../styles/variables";\n@import "../../styles/mixins/media";\n@import "../../styles/mixins/grid";`;
+        content = `@import "../../styles/variables";
+        \n@import "../../styles/mixins/media";
+        \n@import "../../styles/mixins/grid";
+        \n@import "../../styles/mixins/helpers0"`;
     }
 
 
