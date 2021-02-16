@@ -1,0 +1,11 @@
+@mixin fullWidth(){
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+@mixin content(){
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
