@@ -7,3 +7,6 @@ favicon.svg
 public
 images
 fonts
+!./frontend/images/icons/fb.svg
+!./frontend/images/icons/ok.svg
+!./frontend/images/icons/vk.svg
