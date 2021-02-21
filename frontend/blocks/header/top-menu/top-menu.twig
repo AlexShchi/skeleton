@@ -1,9 +1,32 @@
+{% set menu = [
+    {
+        name: 'About Us',
+        href: '#'
+    },
+    {
+        name: 'Delivery',
+        href: '#'
+    },
+    {
+        name: 'Payment',
+        href: '#'
+    },
+    {
+        name: 'For Partners',
+        href: '#'
+    },
+    {
+        name: 'Become a Dealer',
+        href: '#'
+    },
+] %}
+
 <nav class="top-menu">
     <ul>
-        <li><a href="/kit.html">KIT</a></li>
-        <li><a href="/text-page.html">О компании</a></li>
-        <li><a href="/text-page.html">Оплата и доставка</a></li>
-        <li><a href="/text-page.html">Партнерам</a></li>
-        <li><a href="/text-page.html">Птовая продажа</a></li>
+        {% for item in menu %}
+            <li>
+                <a href="{{ item.href }}">{{ item.name }}</a>
+            </li>
+        {% endfor %}
     </ul>
 </nav>

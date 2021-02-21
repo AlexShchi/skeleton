@@ -1,12 +1,13 @@
 @import "../../../styles/variables";
 @import "../../../styles/mixins/media";
-
+@import "../../../styles/mixins/grid";
+@import "../../../styles/mixins/helpers";
 
 $color: $color-1;
+$font-size: 1rem;
 
 .top-menu{
-    width: $content-width;
-    margin: 0 auto;
+    @include content();
 
     ul{
         display: flex;
@@ -21,7 +22,19 @@ $color: $color-1;
         padding: 10px 25px 10px 0;
     }
     a{
+        font-size: $font-size;
+        line-height: $line-height;
+        display: inline-block;
+        white-space: nowrap;
         color: $color;
         text-decoration: none;
+        transition: border-color $transition-time;
+        border-bottom: 1px solid rgba(0,0,0,0);
+
+        @include mediaHover(){
+            &:hover{
+                border-color: $color-1;
+            }
+        }
     }
 }
