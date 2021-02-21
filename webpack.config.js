@@ -15,7 +15,14 @@ const config = {
     experiments: {
         asset: true
     },
-    // stats: 'none',
+    stats: {
+        all: false,
+        builtAt: true,
+        colors: true,
+        errors: true,
+        errorDetails: true,
+        timings: true,
+    },
     // watch: true,
     watchOptions:{
         poll: true,
