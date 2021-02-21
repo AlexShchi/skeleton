@@ -48,3 +48,13 @@ h3{
         }
     }
 }
+
+a{
+    color: $color-1;
+    text-decoration: none;
+    @include mediaHover(){
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

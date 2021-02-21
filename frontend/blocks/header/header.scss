@@ -34,12 +34,12 @@
     &-contacts{
         @include grid($content-gap);
         &__item{
-            padding: 0 0 0 40px;
             position: relative;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             align-items: flex-start;
+            margin-right: $content-gap;
 
             a{
                 display: inline-block;

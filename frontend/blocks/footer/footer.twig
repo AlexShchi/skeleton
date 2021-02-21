@@ -1,69 +1,63 @@
 <footer class="footer">
     <div class="footer-top">
         <div>
-            <nav class="footer-top-menu">
-                <ul>
-                    <li><a href="/catalog.html">Какталог</a></li>
-                    <li><a href="/text-page.html">О компании</a></li>
-                    <li><a href="/text-page.html">Стать дилером</a></li>
-                    <li><a href="/text-page.html">Список филиалов</a></li>
-                    <li><a href="/text-page.html">Конткакты</a></li>
-                </ul>
-            </nav>
+            {% include '../header/top-menu/top-menu.twig' %}
         </div>
     </div>
     <div class="footer-middle">
         <div>
             <div>
-                <div class="logo">
-                    <img src="logo.png"
-                         srcset="logo.svg"
-                         alt="Логотип компании"
-                         title="Логотип компании">
-                </div>
+                <a href="/" class="logo">
+                    <img src="https://via.placeholder.com/150x60"
+                         srcset="https://via.placeholder.com/150x60"
+                         alt="Company Logo"
+                         title="Company Logo"
+                         decoding="async"
+                         loading="lazy">
+                </a>
+                <p>Super Company</p>
+                <p><a href="#">Terms and Conditions</a></p>
+                <p><a href="#">Privacy Policy</a></p>
+
             </div>
             <div class="footer-menu">
-                <div class="footer-menu__title">Меню 1</div>
+                <div class="footer-menu__title">Меню</div>
                 <ul>
-                    <li><a href="/">Пункт 1</a></li>
-                    <li><a href="/">Пункт 2</a></li>
-                    <li><a href="/">Пункт 3</a></li>
-                    <li><a href="/">Пункт 4</a></li>
-                    <li><a href="/">Пункт 5</a></li>
-                    <li><a href="/">Пункт 6</a></li>
+                    {% for item in 1..6 %}
+                        <li><a href="#">Пункт {{ loop.index }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="footer-menu">
-                <div class="footer-menu__title">Меню 1</div>
+                <div class="footer-menu__title">Меню</div>
                 <ul>
-                    <li><a href="/">Пункт 1</a></li>
-                    <li><a href="/">Пункт 2</a></li>
-                    <li><a href="/">Пункт 3</a></li>
-                    <li><a href="/">Пункт 4</a></li>
-                    <li><a href="/">Пункт 5</a></li>
-                    <li><a href="/">Пункт 6</a></li>
+                    {% for item in 1..6 %}
+                        <li><a href="#">Пункт {{ loop.index }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div>
                 <div class="footer-contacts">
-                    <ul>
-                        <li>
-                            <div class="footer-contacts__name">Адрес:</div>
-                            Москва, ул.&nbsp;Шаболовка д.13
-                        </li>
-                        <li>
-                            <div class="footer-contacts__name">Контакты:</div>
+                    <div class="footer-contacts__item -location">
+                        <div>
+                            <div class="footer-contacts__name">Address:</div>
+                            Moscow, Shabolovka&nbsp;st. house&nbsp;13
+                        </div>
+                    </div>
+                    <div class="footer-contacts__item -phone">
+                        <div>
+                            <div class="footer-contacts__name">Contacts:</div>
                             <a href="tel:+71234567890">+7 (123) 456-78-90</a>
-                            <a href="mailto:info@example.com">info@example.com</a>
-                        </li>
-                    </ul>
+                            <a href="mailto:test@test.test">test@test.test</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <div>
-            @copy 2011-2020года. Все права защищены.
+            &copy; 2011-2021. All Right Reserved
         </div>
     </div>
 </footer>
