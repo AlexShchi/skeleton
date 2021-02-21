@@ -9,8 +9,7 @@
 }
 
 @mixin grid-col($size, $gap){
-    width: calc( 50% - #{$gap} );
+    width: calc( #{$size * 100%} - #{$gap} );
     margin-left: #{$gap/2};
     margin-right: #{$gap/2};
-    margin-bottom: #{$gap/2};
 }
