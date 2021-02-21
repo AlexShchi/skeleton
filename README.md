@@ -21,8 +21,8 @@ It will run localhost web-server for html creation. It uses BrowserSync for upda
 
 ToDo
 1) Гланая
-	1.1) - hero slider
-	1.2) - home page main text
+	1.1) - hero slider - done
+	1.2) - home page main text - 
 	1.3) - subsections
 	1.5) - gallery
 	1.4) - popular products carousel widget
