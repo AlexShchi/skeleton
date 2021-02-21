@@ -15,6 +15,7 @@ html, body{
     max-width: 100%;
     min-width: 320px;
     line-height: $line-height;
+    overflow-x: hidden;
 }
 
 body{

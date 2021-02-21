@@ -26,6 +26,7 @@ $font-size: $font-size-base;
         &:hover {
             background: $color;
             color: $color-1;
+            text-decoration: none;
         }
     }
 

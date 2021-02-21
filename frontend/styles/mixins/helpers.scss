@@ -1,11 +1,12 @@
 @mixin fullWidth(){
     position: relative;
     width: 100vw;
+    //max-width: ;
     left: 50%;
     transform: translate(-50%, 0);
 }
 @mixin content(){
-    max-width: $content-width+$content-gap;
+    max-width: $content-width+$content-gap*2;
     width: 100%;
     margin: 0 auto;
     padding: 0 $content-gap;

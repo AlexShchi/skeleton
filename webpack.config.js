@@ -1,6 +1,7 @@
 const options = require('./options.webpack.config');
 
 const fs = require('fs'),
+    webpack = require('webpack'),
     path = require('path'),
     {CleanWebpackPlugin} = require('clean-webpack-plugin'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
@@ -46,6 +47,11 @@ const config = {
         }
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery/dist/jquery.min.js",
+            jQuery: "jquery/dist/jquery.min.js",
+            "window.jQuery": "jquery/dist/jquery.min.js"
+        }),
         new CleanWebpackPlugin({
             verbose: false,
             dangerouslyAllowCleanPatternsOutsideProject: true
@@ -127,14 +133,23 @@ if (options.isProd) {
 
 if(options.isDev){
     console.log('isDev');
-    config.module.rules.push({
-        test: /\.scss$/,
-        use: [
-            MiniCssExtractPlugin.loader,
-            {loader: 'css-loader', options: {sourceMap: options.isDev, url: false}},
-            {loader: 'sass-loader', options: {sourceMap: options.isDev}},
-        ]
-    });
+    config.module.rules.push(
+        {
+            test: /\.scss$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                {loader: 'css-loader', options: {sourceMap: options.isDev, url: false}},
+                {loader: 'sass-loader', options: {sourceMap: options.isDev}},
+            ]
+        },
+        {
+            test: /\.css$/,
+            use: [
+                MiniCssExtractPlugin.loader,
+                {loader: 'css-loader', options: {sourceMap: options.isDev, url: false}},
+            ]
+        }
+    );
     config.entry.ui = path.resolve(__dirname, 'frontend/scripts/ui.js');
 }
 

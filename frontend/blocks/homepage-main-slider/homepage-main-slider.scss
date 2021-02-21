@@ -1,0 +1,89 @@
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+$heading-size: $font-size-h1;
+
+.main-slider {
+    @include fullWidth();
+    &.owl-carousel{
+        @include fullWidth();
+
+        .owl-item{
+            img{
+                width: auto;
+            }
+        }
+
+        .owl-nav{
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            text-align: center;
+            font-size: 3rem;
+
+            button{
+                width: 50px;
+                height: 50px;
+                margin: 0 20px;
+                transition: opacity $transition-time;
+
+                @include mediaHover(){
+                    &:hover{
+                        opacity: 0.7;
+                    }
+                }
+            }
+        }
+    }
+
+    &__item {
+        height: 250px;
+        overflow:hidden;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &:nth-child(n+2){
+            display: none;
+        }
+
+
+        img{
+            height: 100%;
+            width: auto;
+            position: absolute;
+            top:0;
+            left: 50%;
+            right: auto;
+            bottom: 0;
+            transform:translate(-50%, 0);
+            z-index: 0;
+        }
+
+        @include mediaMin($sm){
+            height: 350px;
+        }
+
+        @include mediaMin($mobile){
+            height: 450px;
+        }
+
+    }
+
+    &__text {
+        @include content();
+        position: relative;
+        z-index: 1;
+    }
+
+    &__heading {
+        font-size: $heading-size;
+        font-weight: bold;
+    }
+
+}
