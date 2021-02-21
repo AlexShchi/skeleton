@@ -54,9 +54,9 @@ function buildPath(dist, blockPath, name, extention){
         content = `import "./${name}.scss";`;
     } else if(extention === 'scss') {
         content = `@import "../../styles/variables";
-        \n@import "../../styles/mixins/media";
-        \n@import "../../styles/mixins/grid";
-        \n@import "../../styles/mixins/helpers0"`;
+        @import "../../styles/mixins/media";
+        @import "../../styles/mixins/grid";
+        @import "../../styles/mixins/helpers"`;
     }
 
 
