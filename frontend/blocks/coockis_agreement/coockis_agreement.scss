@@ -11,7 +11,7 @@
     bottom: auto;
     transition: transform 0.3s;
     z-index: 9999;
-    background-color: rgba($color-second,0.9);
+    background-color: rgba($color-2,0.9);
     &.active{
         transform: translate(0, -100%);
     }
