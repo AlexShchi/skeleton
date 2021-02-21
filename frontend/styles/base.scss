@@ -1,4 +1,7 @@
 @import "variables";
+@import "mixins/grid";
+@import "mixins/media";
+@import "mixins/helpers";
 
 *{
     outline: none;
@@ -29,4 +32,19 @@ h2{
 
 h3{
     font-size: $font-size-h3;
+}
+
+[href^="tel:"],
+[href^="mailto:"]{
+    font-weight: bold;
+    font-size: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+
+    @include mediaHover(){
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }

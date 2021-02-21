@@ -2,11 +2,5 @@
 .yarn
 node_modules
 favicon.twig
-favicon.svg
-/html
 public
-images
 fonts
-!./frontend/images/icons/fb.svg
-!./frontend/images/icons/ok.svg
-!./frontend/images/icons/vk.svg
