@@ -1,4 +1,4 @@
 import "./homepage-reviews.scss";
 
 
-// TODO: Добавить карусельку
+// TODO: Добавь  карусельку
