@@ -11,5 +11,10 @@
         text-align: center;
     }
 
+    img{
+        margin-bottom: $content-gap;
+    }
+
+
     @include clearBottom();
 }
