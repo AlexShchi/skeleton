@@ -25,7 +25,7 @@ ToDo
 	1.2) - home page main text - done
 	1.3) - subsections - done
 	1.5) - gallery - done
-	1.4) - popular products carousel widget
+	1.4) - popular products carousel widget - done
 	1.5) - homepage advantages
 	1.6) - homepage text additional
 	1.7) - reviews	
