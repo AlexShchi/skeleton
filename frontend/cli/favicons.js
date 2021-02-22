@@ -79,10 +79,12 @@ favicons(source, configuration, callback);
 
 function write(response){
 
+    // Массив иконок, которые нужно скопировать в корень
     const toRoot = ['favicon.ico', 'apple-touch-icon.png'];
 
     if (response.images.length) {
 
+        // Записываем полученные изображения
         response.images.forEach((image)=>{
 
             // console.log(image.name);
@@ -108,6 +110,7 @@ function write(response){
         console.log('Фавиконы не сгенерированы');
     }
 
+    // Замисываем файлы с описанием фавиконок для разных устройств (manifest, json)
     if (response.files) {
         response.files.forEach((file)=>{
             fs.writeFile(dest + file.name , clearFromPublic( file.contents ), function(err){
@@ -120,6 +123,7 @@ function write(response){
         console.log('Файлы описаний не сгенерированы');
     }
 
+    // Записываем файл twig с подключением фавиконок для дальнейшей сборки
     if (response.html) {
 
         let str = '';
@@ -138,6 +142,9 @@ function write(response){
     }
 }
 
+// убираем назание публичной папки из пути, чтобы итоговый путь был от корня сайта
 function clearFromPublic(str){
     return str.replace( /\/public\//g, '/');
 }
+
+// TODO: Настрой вывод подключения фавиконок так, чтобы валидатор не выдавал предупреждений и ошибок.

@@ -1,12 +1,11 @@
 const fs = require('fs');
 
-
 const dist = '/frontend/blocks/'
 
 const name = process.argv[2];
 const blockPath = process.argv[3]?process.argv[3]:'';
 
-
+// выводим прредупреждение, если при создании блока небыло указано его название
 if( !name ){
     console.log(`\x1b[31mNew block name doesn't provide.\x1b[0m`)  ;
     return false;
@@ -16,20 +15,22 @@ console.log('name: ', name);
 console.log('path: ', blockPath);
 
 
+// расширения файлов для создания
 const extentions = ['js','scss','twig'];
 
+// создаем файлы
 extentions.forEach((extention)=>{
 
-    const pathFull = buildPath(dist, blockPath, name, extention);
+    const fileData = buildFileData(dist, blockPath, name, extention);
 
-    fs.mkdir( pathFull.dir, { recursive: true }, (err)=>{
+    fs.mkdir( fileData.dir, { recursive: true }, (err)=>{
         if(err) throw err;
 
-        fs.writeFile( pathFull.path, pathFull.content, (err)=>{
+        fs.writeFile( fileData.path, fileData.content, (err)=>{
             if(err){
                 console.log(err);
             } else {
-                console.log(`\x1b[32mBlock "${name}" is writen to ${pathFull.dir}.\x1b[0m`);
+                console.log(`\x1b[32mBlock "${name}" is writen to ${fileData.dir}.\x1b[0m`);
             }
 
         } )
@@ -39,8 +40,8 @@ extentions.forEach((extention)=>{
 })
 
 
-
-function buildPath(dist, blockPath, name, extention){
+// создаем путь и наполнене файла
+function buildFileData(dist, blockPath, name, extention){
 
     dist = dist.replace( /^\//,'');
     dist = dist.replace( /\/$/,'');
