@@ -9,3 +9,4 @@ import '../blocks/gallery/gallery';
 import '../blocks/products-carousel/products-carousel';
 import '../blocks/homepage-advantages/homepage-advantages';
 import '../blocks/homepage-additional-text/homepage-additional-text';
+import '../blocks/homepage-reviews/homepage-reviews';

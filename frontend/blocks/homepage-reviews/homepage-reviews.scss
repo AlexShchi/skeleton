@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+.reviews{
+    &-container{
+        margin: 50px 0;
+    }
+
+    @include grid($content-gap);
+
+    &__item{
+        @include grid-col(1,$content-gap);
+
+        border: 1px solid #ccc;
+        border-radius: $border-radius-1;
+        overflow: hidden;
+        padding: 30px 70px 30px 70px;
+        background-image: url("/assets/images/icons/quote.svg");
+        background-repeat: no-repeat;
+        background-position: left $content-gap top $content-gap;
+        background-size: 2rem 2rem;
+        margin-bottom: $content-gap;
+
+        &-name{
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        @include mediaMin($lg){
+            @include grid-col(1/2,$content-gap);
+        }
+    }
+}

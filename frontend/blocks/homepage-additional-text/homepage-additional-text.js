@@ -1,1 +1,1 @@
-import "./hompage-text-additional.scss";
+import "./homepage-additional-text.scss";

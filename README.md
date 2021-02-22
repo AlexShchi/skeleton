@@ -27,7 +27,7 @@ ToDo
 	1.5) - gallery - done
 	1.4) - popular products carousel widget - done
 	1.5) - homepage advantages - done
-	1.6) - homepage text additional
+	1.6) - homepage text additional - done
 	1.7) - reviews	
 	1.4) - banners
 	1,9) - map
