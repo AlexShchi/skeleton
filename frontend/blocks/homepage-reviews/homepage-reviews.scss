@@ -3,15 +3,15 @@
 @import "../../styles/mixins/grid";
 @import "../../styles/mixins/helpers";
 
-.reviews{
-    &-container{
+.reviews {
+    &-container {
         margin: 50px 0;
     }
 
     @include grid($content-gap);
 
-    &__item{
-        @include grid-col(1,$content-gap);
+    &__item {
+        @include grid-col(1, $content-gap);
 
         border: 1px solid #ccc;
         border-radius: $border-radius-1;
@@ -23,13 +23,62 @@
         background-size: 2rem 2rem;
         margin-bottom: $content-gap;
 
-        &-name{
+        &-name {
             font-size: 1.3rem;
             font-weight: bold;
         }
 
-        @include mediaMin($lg){
-            @include grid-col(1/2,$content-gap);
+        @include mediaMin($lg) {
+            @include grid-col(1/2, $content-gap);
+        }
+    }
+
+    &.owl-carousel {
+        display: block;
+        position: relative;
+
+        .reviews__item {
+            width: 100%;
+            margin: 0;
+        }
+
+        .owl-nav {
+            button {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: auto;
+                margin: auto;
+                font-size: 5rem;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                border: 1px solid #ccc;
+                border-radius: $border-radius-1;
+                transform: translate(-50%, 0);
+                background: white;
+                line-height: 0;
+                opacity: 0.7;
+                transition: opacity $transition-time;
+
+                span {
+                    display: inherit;
+                    margin-top: -8px;
+                }
+
+                &.owl-next {
+                    left: auto;
+                    right: 0;
+                    transform: translate(50%, 0);
+                }
+
+                @include mediaHover() {
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
 }
