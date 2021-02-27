@@ -16,15 +16,15 @@
                          loading="lazy">
                 </a>
                 <p>Super Company</p>
-                <p><a href="#">Terms and Conditions</a></p>
-                <p><a href="#">Privacy Policy</a></p>
+                <p><a href="/text-page.html">Terms and Conditions</a></p>
+                <p><a href="/text-page.html">Privacy Policy</a></p>
 
             </div>
             <div class="footer-menu">
                 <div class="footer-menu__title">Menu</div>
                 <ul>
                     {% for item in 1..6 %}
-                        <li><a href="#">List Point {{ loop.index }}</a></li>
+                        <li><a href="/text-page.html">List Point {{ loop.index }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -32,7 +32,7 @@
                 <div class="footer-menu__title">Menu</div>
                 <ul>
                     {% for item in 1..6 %}
-                        <li><a href="#">List Point {{ loop.index }}</a></li>
+                        <li><a href="/text-page.html">List Point {{ loop.index }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -52,12 +52,14 @@
                         </div>
                     </div>
                 </div>
+
+                {% include '../socials/socials.twig' %}
             </div>
         </div>
     </div>
     <div class="footer-bottom">
         <div>
-            &copy; 2011-2021. All Right Reserved
+            &copy; 2011-{{ 'now'|date('Y') }}. All Right Reserved
         </div>
     </div>
 </footer>

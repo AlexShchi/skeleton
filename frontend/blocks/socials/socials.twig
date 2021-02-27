@@ -1,0 +1,48 @@
+{% set socials = [
+    {
+        name: 'Vkontakte',
+        url : '//vk.com/',
+        img: './assets/images/icons/vk.svg'
+    },
+    {
+        name: 'Facebook',
+        url : '//www.facebook.com/',
+        img: './assets/images/icons/fb.svg'
+    },
+    {
+        name: 'Twitter',
+        url : '//twitter.com/',
+        img: './assets/images/icons/twitter.svg'
+    },
+    {
+        name: 'Instagram',
+        url : '//www.instagram.com/',
+        img: './assets/images/icons/instagram.svg'
+    },
+    {
+        name: 'Odnoklassniki',
+        url : '//ok.ru/',
+        img: './assets/images/icons/ok.svg'
+    },
+    {
+        name: 'Youtube',
+        url : '//www.youtube.com/',
+        img: './assets/images/icons/youtube.svg'
+    },
+    {
+        name: 'Zen',
+        url : '//zen.yandex.ru/',
+        img: './assets/images/icons/zen.svg'
+    }
+] %}
+<div class="socials">
+    {% for item in socials %}
+        <a href="{{ item.url }}" target="_blank" rel="noreferrer noopener">
+            <img src="{{ item.img }}"
+                 alt=""
+                 title="Find us in {{ item.name }}"
+                 decoding="async"
+                 loading="lazy">
+        </a>
+    {% endfor %}
+</div>
