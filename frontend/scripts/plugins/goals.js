@@ -4,6 +4,8 @@
  * @type {{trigger, debug}}
  */
 
+// TODO: переделать в класс
+
 const goalsModule = (() => {
 
     var services = {
@@ -73,6 +75,13 @@ const goalsModule = (() => {
         'Twitter'      : 'twitter.com',
         'Youtube'      : 'youtube.com',
         'Zen'          : 'zen.yandex.ru',
+
+    }
+
+    const defaultsShare = {
+        'OkShare'      : 'connect.ok.ru/offer',
+        'VKShare'      : 'vk.com/share.php',
+        'FbShare'      : 'facebook.com/sharer',
     }
 
     document.addEventListener('click', (event) => {
@@ -86,13 +95,24 @@ const goalsModule = (() => {
 
         }
 
-        for (let key in defaultsClicks) {
+        if( target.closest('.share') ){
+            for (let key in defaultsShare) {
 
-            if (target.href.indexOf(defaultsClicks[key]) > -1) {
-                goalDone(`Click on ${key}`, 'Clicks');
-                break;
+                if (target.href.indexOf(defaultsShare[key]) > -1) {
+                    goalDone(`Click on ${key}`, 'Clicks');
+                    break;
+                }
+
             }
+        } else {
+            for (let key in defaultsClicks) {
 
+                if (target.href.indexOf(defaultsClicks[key]) > -1) {
+                    goalDone(`Click on ${key}`, 'Clicks');
+                    break;
+                }
+
+            }
         }
 
     })
