@@ -3,25 +3,47 @@
  *
  * @type {{trigger, debug}}
  */
-// TODO: Добавь автоматическое подключение нужных счетчиков
 
 const goalsModule = (() => {
 
     var services = {
-        yaCounterID: '',
+        yaCounterID: [],
         mailRuID: false,
         gaUsed: true,
         gtagUsed: true,
         fbqUsed: true
     };
 
+    window.addEventListener('load', ()=>{
+        if( typeof Ya !== 'undefined' ){
+
+            for( let item in Ya._metrika.counters){
+                if(item){
+                    services.yaCounterID.push(item.split(':')[0]);
+                }
+            }
+
+        }
+    })
+
+
     // PRIVATE =========================================================================================================
 
     var goalDone = function (goalName, goalCategory) {
-        if (services.yaCounterID !== '' && typeof window['yaCounter' + services.yaCounterID] !== "undefined") {
-            window['yaCounter' + services.yaCounterID].reachGoal(goalName, function () {
-            });
+
+        if (services.yaCounterID.length) {
+
+            services.yaCounterID.forEach( (item) => {
+
+                console.log(window[`yaCounter${item}`]);
+                if (typeof window[`yaCounter${item}`] !== "undefined") {
+                    window[`yaCounter${item}`].reachGoal(goalName, function () {
+                    });
+                }
+
+            })
         }
+
         if (services.mailRuID !== '' && typeof _tmr !== "undefined") {
             _tmr.push({id: services.mailRuID, type: 'reachGoal', goal: goalName});
         }
@@ -35,6 +57,7 @@ const goalsModule = (() => {
             fbq('track', goalName, {});
         }
     };
+
 
     // ADD goals
 
@@ -57,16 +80,19 @@ const goalsModule = (() => {
         let target = event.target;
 
         if (target.tagName !== 'a') {
+
             target = target.closest('a');
             if (target == null) return;
+
         }
 
         for (let key in defaultsClicks) {
+
             if (target.href.indexOf(defaultsClicks[key]) > -1) {
                 goalDone(`Click on ${key}`, 'Clicks');
-                console.log(`Click on ${key}`);
                 break;
             }
+
         }
 
     })
