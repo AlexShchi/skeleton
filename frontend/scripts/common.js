@@ -3,3 +3,7 @@ import '../blocks/footer/footer';
 import '../blocks/header/header';
 import '../blocks/share/share';
 import '../blocks/coockis_agreement/coockis_agreement';
+
+
+/* plugins */
+import './plugins/goals';
