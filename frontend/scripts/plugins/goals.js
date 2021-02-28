@@ -4,7 +4,6 @@
  * @type {{trigger, debug}}
  */
 
-// TODO: переделай в класс
 
 const goalsModule = (() => {
 

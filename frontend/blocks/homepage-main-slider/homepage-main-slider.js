@@ -1,8 +1,6 @@
 import "./homepage-main-slider.scss";
-import 'jquery';
 import 'owl.carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
-
 
 (() => {
     const mainSlider = document.querySelector('.js-main-slider');
