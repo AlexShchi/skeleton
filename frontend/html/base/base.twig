@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+{#    Раскомментировать после генерации favicon.twig #}
+{#    {% include "favicon.twig" %} #}
+
+    {% block styles %}
+    <link rel="stylesheet" href="./assets/build-dev/page.css">
+    {% endblock %}
+
+</head>
+<body>
+
+    <div class="l-header">
+        {% include '../../blocks/header/header.twig' %}
+    </div>
+
+    <div class="l-main">
+        <div class="l-content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <div class="l-footer">
+        {% include '../../blocks/footer/footer.twig' %}
+    </div>
+
+    {% block scripts %}
+        <script src="./assets/build-dev/page.js"></script>
+    {% endblock %}
+
+    {% include '../../blocks/share/share.twig' %}
+
+</body>
+</html>

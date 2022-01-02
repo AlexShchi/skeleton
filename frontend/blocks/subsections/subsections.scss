@@ -1,0 +1,65 @@
+@use 'sass:math';
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+
+.subsections{
+    @include grid(math.div($content-gap, 2));
+
+    &__item{
+        @include grid-col(1, math.div($content-gap, 2));
+        font-size: 0;
+        line-height: 0;
+        margin-bottom: math.div($content-gap, 2);
+        position: relative;
+        border-radius: $border-radius-1;
+        overflow: hidden;
+
+        a{
+            text-decoration: none;
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &-text{
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 1.3rem;
+            line-height: $line-height;
+            z-index: 3;
+            padding: $content-gap;
+            color: $color-2;
+            background-color: rgba($color-1, 0.5);
+            transition: background-color $transition-time;
+
+            &:after{
+                @include bigAfter();
+                height: 350%;
+                top: auto;
+            }
+
+            @include mediaHover(){
+                &:hover{
+                    background-color: rgba($color-1, 1);
+                }
+            }
+        }
+
+        @include mediaMin($md){
+            @include grid-col(math.div(1,  4), math.div($content-gap, 2));
+        }
+    }
+
+    &-container{
+        margin: 50px 0;
+    }
+}

@@ -1,0 +1,19 @@
+<div class="advantages-container">
+    <h2>Homepage advantages block</h2>
+    <div class="advantages js-advantages-carousel">
+        {% for item in 1..5 %}
+            <div class="advantages__item">
+                <div class="advantages__item-img">
+                    <img src="/assets/images/icons/default-icon.svg"
+                         alt=""
+                         decoding="async"
+                         loading="lazy">
+                </div>
+                <p class="advantages__item-text">
+                    <b>Advantage {{ loop.index }} Name</b>
+                    Per in illud petentium iudicabit, integre sententiae pro no.
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+</div>

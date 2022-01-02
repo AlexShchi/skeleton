@@ -1,0 +1,45 @@
+@use 'sass:math';
+/* fonts */
+$font-family-1:  'Monotype', sansSerif;
+$font-family-2:  'Lato', sansSerif;
+$font-size-base: 16px;
+
+$font-size-h1:   2rem;
+$font-size-h2:   1.8rem;
+$font-size-h3:   1.4rem;
+$line-height:    1.6;
+
+/* colors */
+$color-1: #292E32;
+$color-2: #F5F5F5;
+$color-3: #62615F;
+$color-4: #647DD5;
+$color-5: #F3636C;
+$color-6: #9CA7AE;
+$color-7: #ffffff;
+
+/* gradients */
+$gradient-1: linear-gradient( to right,#6F85D3, #4C6BD9 );
+$gradient-2: linear-gradient( to right,#80EBF2, #1EB8DA );
+
+/* content */
+$content-width: 1200px;
+$content-gap:   20px;
+
+/* Resolutions */
+$mobile: 980px;
+$hover:  $mobile;
+$xxs:    375px; /* iphone X в портретной ориентации */
+$xs:     414px; /* iphone plus в портретной ориентации */
+$sm:     568px; /* small, iphone X в альбомной ориентации */
+$md:     768px; /* medium, планшеты в портретной ориентации / телефоны в альбомной */
+$lg:     1024px; /* large, планшеты в альбомной ориентации */
+$xl:     1280px; /* extra large, ноутбуки */
+$xxl:    1600px;
+
+/* radius */
+$border-radius-1: 5px;
+$border-radius-2: 10px;
+
+/* transition */
+$transition-time: 0.3s;

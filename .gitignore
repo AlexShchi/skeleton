@@ -1,0 +1,9 @@
+.idea
+.yarn
+node_modules
+favicon.twig
+public
+fonts
+.yarnrc
+yarn.lock
+yarn-error.log

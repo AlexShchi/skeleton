@@ -1,0 +1,67 @@
+@import "variables";
+@import "mixins/grid";
+@import "mixins/media";
+@import "mixins/helpers";
+
+*{
+    outline: none;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); // убираем прямоугольник вокруг элемента на мобильных при нажатии
+}
+html, body{
+    font-size: $font-size-base;
+    color: $color-1;
+    min-height: 100vh;
+    max-width: 100%;
+    min-width: 320px;
+    line-height: $line-height;
+    overflow-x: hidden;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+}
+
+h1, .h1{
+    font-size: $font-size-h1;
+}
+
+h2, .h2{
+    font-size: $font-size-h2;
+}
+
+h3, .h3{
+    font-size: $font-size-h3;
+}
+
+[href^="tel:"],
+[href^="mailto:"]{
+    font-weight: bold;
+    font-size: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+
+    @include mediaHover(){
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+a{
+    color: $color-1;
+    text-decoration: none;
+    @include mediaHover(){
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.l-main .l-content img{
+    border-radius: $border-radius-1;
+    max-width: 100%;
+}

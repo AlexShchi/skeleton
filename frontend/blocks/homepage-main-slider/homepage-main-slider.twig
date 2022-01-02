@@ -1,0 +1,16 @@
+<div class="main-slider js-main-slider">
+    {% for item in 1..3 %}
+        <div class="main-slider__item">
+            <img src="//via.placeholder.com/3840x900"
+                 srcset="//via.placeholder.com/1920x450 1920w,
+                 //via.placeholder.com/3840x900 3840w,
+                 //via.placeholder.com/960x225 960w"
+                 alt="Slide {{ loop.index }}"
+                 title="Slide {{ loop.index }}">
+            <div class="main-slider__text">
+                <p class="main-slider__heading">Main Slider Slide {{ loop.index }}</p>
+                <p>Main Slider Slide {{ loop.index }} Text</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>

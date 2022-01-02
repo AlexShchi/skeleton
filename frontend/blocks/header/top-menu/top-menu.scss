@@ -1,0 +1,40 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins/media";
+@import "../../../styles/mixins/grid";
+@import "../../../styles/mixins/helpers";
+
+$color: $color-1;
+$font-size: 1rem;
+
+.top-menu{
+    @include content();
+
+    ul{
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        list-style: none;
+    }
+    li{
+        width: auto;
+        height: auto;
+        padding: 10px 25px 10px 0;
+    }
+    a{
+        font-size: $font-size;
+        line-height: $line-height;
+        display: inline-block;
+        white-space: nowrap;
+        color: $color;
+        text-decoration: none;
+        transition: border-color $transition-time;
+        border-bottom: 1px solid rgba(0,0,0,0);
+
+        @include mediaHover(){
+            &:hover{
+                border-color: $color-1;
+            }
+        }
+    }
+}

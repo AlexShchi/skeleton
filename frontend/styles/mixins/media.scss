@@ -1,0 +1,23 @@
+@mixin mediaMin($size) {
+    @media (min-width: $size - 1px) {
+        @content;
+    }
+}
+
+@mixin mediaMax($size) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
+
+@mixin mediaMinMax($min, $max) {
+    @media (min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}
+
+@mixin mediaHover(){
+    @media (min-width: $hover){
+        @content;
+    }
+}

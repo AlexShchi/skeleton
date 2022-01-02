@@ -1,0 +1,16 @@
+<div class="gallery-container">
+    <h2>Gallery</h2>
+    <div class="gallery">
+        {% for item in 1..10 %}
+            <a href="//via.placeholder.com/1600x1200"
+               class="gallery__item">
+                <img src="//via.placeholder.com/1600x1200"
+                     srcset="//via.placeholder.com/400x300 400w, //via.placeholder.com/800x600 800w"
+                     alt="Image"
+                     title=Image""
+                     decoding="async"
+                     loading="lazy">
+            </a>
+        {% endfor %}
+    </div>
+</div>

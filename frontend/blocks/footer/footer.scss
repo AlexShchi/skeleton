@@ -1,0 +1,104 @@
+@use 'sass:math';
+@import '../../styles/variables';
+@import '../../styles/mixins/media';
+@import '../../styles/mixins/grid';
+
+
+@mixin content{
+    width: $content-width;
+    margin: 0 auto;
+}
+/* footer.scss */
+.footer{
+    margin-top: auto;
+    padding-top: 40px;
+
+    &-top{
+        background: #ccc;
+        >div{
+            @include content;
+
+            width: $content-width;
+            margin: 0 auto;
+        }
+    }
+
+    &-middle{
+        padding: 20px 0;
+        background: #eee;
+        >div{
+            @include content;
+            display: flex;
+
+            >div{
+                width: 25%;
+            }
+        }
+    }
+
+    &-bottom{
+        text-align: center;
+        color: white;
+        background: black;
+        padding: 10px 0;
+        >div{
+            @include content;
+        }
+    }
+
+    &-contacts {
+        @include grid($content-gap);
+        &__item{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            margin-right: $content-gap;
+            margin-bottom: $content-gap;
+
+            a{
+                display: inline-block;
+                width: 100%;
+            }
+
+            &:before{
+                content:'';
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 15px;
+                background-image: url('/assets/images/icons/default-icon.svg');
+            }
+
+            &.-location{
+                &:before{
+                    background-image: url('/assets/images/icons/location.svg');
+                }
+            }
+            &.-phone{
+                &:before{
+                    background-image: url('/assets/images/icons/phone.svg');
+                }
+            }
+        }
+        &__name{
+            width: 100%;
+            font-size: 0.8em;
+            color: $color-1;
+            margin-bottom: 0.2em;
+            font-weight: bold;
+        }
+    }
+
+    &-menu{
+        ul{
+            padding: 0;
+            list-style: none;
+        }
+    }
+
+}

@@ -1,0 +1,65 @@
+<footer class="footer">
+    <div class="footer-top">
+        <div>
+            {% include '../header/top-menu/top-menu.twig' %}
+        </div>
+    </div>
+    <div class="footer-middle">
+        <div>
+            <div>
+                <a href="/" class="logo">
+                    <img src="https://via.placeholder.com/150x60"
+                         srcset="https://via.placeholder.com/150x60"
+                         alt="Company Logo"
+                         title="Company Logo"
+                         decoding="async"
+                         loading="lazy">
+                </a>
+                <p>Super Company</p>
+                <p><a href="/text-page.html">Terms and Conditions</a></p>
+                <p><a href="/text-page.html">Privacy Policy</a></p>
+
+            </div>
+            <div class="footer-menu">
+                <div class="footer-menu__title">Menu</div>
+                <ul>
+                    {% for item in 1..6 %}
+                        <li><a href="/text-page.html">List Point {{ loop.index }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="footer-menu">
+                <div class="footer-menu__title">Menu</div>
+                <ul>
+                    {% for item in 1..6 %}
+                        <li><a href="/text-page.html">List Point {{ loop.index }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div>
+                <div class="footer-contacts">
+                    <div class="footer-contacts__item -location">
+                        <div>
+                            <div class="footer-contacts__name">Address:</div>
+                            Moscow, Shabolovka&nbsp;st. house&nbsp;13
+                        </div>
+                    </div>
+                    <div class="footer-contacts__item -phone">
+                        <div>
+                            <div class="footer-contacts__name">Contacts:</div>
+                            <a href="tel:+71234567890">+7 (123) 456-78-90</a>
+                            <a href="mailto:test@test.test">test@test.test</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% include '../socials/socials.twig' %}
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div>
+            &copy; 2011-{{ 'now'|date('Y') }}. All Right Reserved
+        </div>
+    </div>
+</footer>

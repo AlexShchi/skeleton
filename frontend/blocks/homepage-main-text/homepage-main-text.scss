@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+
+.main-text{
+    margin: 50px 0;
+
+    h1, .h1{
+        text-align: center;
+    }
+
+    img{
+        margin-bottom: $content-gap;
+    }
+
+
+    @include clearBottom();
+}

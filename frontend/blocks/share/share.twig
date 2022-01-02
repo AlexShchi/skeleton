@@ -1,0 +1,33 @@
+{% set site = 'https://advokat-nikonov.ru/' %}
+{% set socials = [
+    {
+        link:'https://vk.com/share.php?url=',
+        icon: '/assets/images/icons/vk'
+    },
+    {
+        link:'https://connect.ok.ru/offer?url=',
+        icon: '/assets/images/icons/ok'
+    },
+    {
+        link:'https://www.facebook.com/sharer/sharer.php?u=',
+        icon: '/assets/images/icons/fb'
+    }
+] %}
+<div class="share-fixed">
+    <ul class="share">
+
+        {% for item in socials %}
+            <li>
+                <a href="{{ item.link }}{{ site }}" target="_blank" rel="noreferrer noopener">
+                    <img src="{{ item.icon }}.png"
+                         srcset="{{ item.icon }}.svg"
+                         alt="Расшарить"
+                         title="Расшарить"
+                         decoding="async"
+                         loading="lazy">
+                </a>
+            </li>
+        {% endfor %}
+
+    </ul>
+</div>

@@ -1,0 +1,108 @@
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+
+$radius: $border-radius-1;
+
+.share {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li{
+        display: inline-block;
+        overflow: hidden;
+        text-align: center;
+        margin: 10px;
+        transition: transform 0.2s , box-shadow 0.2s;
+        &:hover{
+            transform: scale(1.2);
+        }
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            border-radius: $radius;
+            overflow:hidden;
+            img{
+                width: 30px !important;
+                height: 30px !important;
+                margin:0 !important;
+                padding: 0;
+                border-radius: 0;
+            }
+        }
+    }
+    &-fixed{
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 50%;
+        z-index: 100;
+        ul.share{
+            display: block;
+            width: auto;
+            height: auto;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li{
+                display: block;
+                border-radius: 3px;
+                overflow: hidden;
+                text-align: center;
+                margin: 10px;
+                transition: transform 0.2s , box-shadow 0.2s;
+                &:hover{
+                    transform: scale(1.2);
+                }
+                a{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    background-color: white;
+                    img{
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
+        @media(min-width: $lg){
+            display: block;
+        }
+    }
+    &-post{
+        display: block;
+        width: auto;
+        vertical-align: middle;
+        text-align: right;
+        margin: 25px 0;
+        >*{
+            display: inline-block;
+            vertical-align: middle;
+            font-weight: bold;
+            margin: 0;
+        }
+        ul{
+            margin-right: -5px;
+            li{
+                margin: 0 5px;
+                a{
+                    img{
+                        border-radius: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}

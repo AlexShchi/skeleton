@@ -1,0 +1,91 @@
+@use 'sass:math';
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+
+.products-carousel{
+    @include grid($content-gap);
+
+    &-container{
+        margin: 50px 0;
+    }
+    &__item{
+        @include grid-col(1, $content-gap);
+        display: flex;
+        flex-direction: column;
+        border-radius: $border-radius-1;
+        overflow: hidden;
+        margin-bottom: $content-gap;
+
+        &-img{
+            width: 100%;
+            height: 0;
+            padding-bottom: math.div(6,  8)*100%;
+            position:relative;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top:0;
+                border-radius: 0;
+                .l-main .l-content & {
+                    border-radius: 0;
+                }
+
+            }
+        }
+        &-content{
+            padding: $content-gap;
+            border: 1px solid #ccc;
+            border-top:none;
+            border-radius: 0 0 $border-radius-1 $border-radius-1;
+        }
+
+        &-head{
+            display: block;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: $content-gap;
+
+            @include mediaHover(){
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+        &-text{
+            margin-bottom: auto;
+            line-height: 1.2;
+        }
+
+        &-btns{
+            text-align: center;
+            margin-top: $content-gap;
+
+
+            [class^="btn"]{
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @include mediaMin($xs){
+            @include grid-col(math.div(1,  2), $content-gap);
+        }
+        @include mediaMin($sm){
+            @include grid-col(math.div(1,  3), $content-gap);
+        }
+        @include mediaMin($lg){
+            @include grid-col(math.div(1,  4), $content-gap);
+        }
+        @include mediaMin($xl){
+            @include grid-col(math.div(1,  5), $content-gap);
+        }
+
+    }
+}

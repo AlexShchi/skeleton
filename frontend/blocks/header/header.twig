@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="header-top">
+        {% include './top-menu/top-menu.twig' %}
+    </div>
+    <div class="header-middle">
+        <div>
+            <a href="/" class="logo">
+                <img src="https://via.placeholder.com/150x60"
+                     srcset="https://via.placeholder.com/150x60"
+                     alt="Company Logo"
+                     title="Company Logo"
+                     decoding="async"
+                     loading="lazy">
+            </a>
+            <div class="header-contacts">
+                <div class="header-contacts__item -location">
+                    <div>
+                        <div class="header-contacts__name">Address:</div>
+                        Moscow, Shabolovka&nbsp;st. house&nbsp;13
+                    </div>
+                </div>
+                <div class="header-contacts__item -phone">
+                    <div>
+                        <div class="header-contacts__name">Contacts:</div>
+                        <a href="tel:+71234567890">+7 (123) 456-78-90</a>
+                        <a href="mailto:test@test.test">test@test.test</a>
+                    </div>
+                </div>
+            </div>
+            <div class="header-buttons">
+                <a href="#" class="btn">Cart</a>
+                <button class="btn-second">Show Order</button>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        {% include './main-menu/main-menu.twig' %}
+    </div>
+</header>

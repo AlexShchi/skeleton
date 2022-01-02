@@ -1,0 +1,92 @@
+@use 'sass:math';
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+/* header.scss */
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &-top {
+        height: auto;
+        background-color: #ccc;
+    }
+
+    &-middle {
+        background: #eee;
+        >div{
+            @include content();
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+    &-bottom {
+        height: auto;
+        background-color: $color-1;
+    }
+
+    &-contacts{
+        @include grid($content-gap);
+        &__item{
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            margin-right: $content-gap;
+
+            a{
+                display: inline-block;
+                width: 100%;
+            }
+
+            &:before{
+                content:'';
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-right: 15px;
+                background-image: url('/assets/images/icons/default-icon.svg');
+            }
+
+            &.-location{
+                &:before{
+                    background-image: url('/assets/images/icons/location.svg');
+                }
+            }
+            &.-phone{
+                &:before{
+                    background-image: url('/assets/images/icons/phone.svg');
+                }
+            }
+        }
+        &__name{
+            width: 100%;
+            font-size: 0.8em;
+            color: $color-1;
+            margin-bottom: 0.2em;
+            font-weight: bold;
+        }
+    }
+
+    &-buttons{
+
+    }
+
+}
+
+.logo{
+    width: 150px;
+    height: 60px;
+    background-color: #ccc;
+}

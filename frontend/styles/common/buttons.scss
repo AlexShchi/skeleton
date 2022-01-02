@@ -1,0 +1,62 @@
+@import "../variables";
+@import "../mixins/grid";
+@import "../mixins/media";
+@import "../mixins/helpers";
+
+$color: $color-2;
+$bg: $color-1;
+$border-radius: $border-radius-1;
+$font-size: $font-size-base;
+
+.btn {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 8px 20px;
+    font-size: $font-size;
+    text-decoration: none;
+    color: $color;
+    border-radius: $border-radius;
+    background: $bg;
+    border: 1px solid $bg;
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    cursor: pointer;
+
+    @include mediaHover {
+        &:hover {
+            background: $color;
+            color: $color-1;
+            text-decoration: none;
+        }
+    }
+
+}
+
+.btn{
+    &-second{
+        @extend .btn;
+        background: $color-2;
+        color: $color-1;
+
+        @include mediaHover {
+            &:hover {
+                color: $color-2;
+                background: $color-1;
+            }
+        }
+    }
+    &-third{
+        @extend .btn;
+        background: $color-2;
+        color: $color-1;
+        border-color: $color-2;
+
+        @include mediaHover {
+            &:hover {
+                color: $color-3;
+                background: $color-1;
+            }
+        }
+    }
+}

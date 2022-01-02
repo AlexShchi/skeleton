@@ -1,0 +1,45 @@
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+
+$heading-size: $font-size-h1;
+
+.hero{
+    @include fullWidth();
+    height: 250px;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+
+    img{
+        height: 100%;
+        width: auto;
+        position: absolute;
+        top:0;
+        left: 50%;
+        right: auto;
+        bottom: 0;
+        transform:translate(-50%, 0);
+        z-index: 0;
+    }
+
+    &-content{
+        @include content();
+        position: relative;
+        z-index: 1;
+    }
+
+    &-heading{
+        font-size: $heading-size;
+        font-weight: bold;
+    }
+    @include mediaMin($sm){
+        height: 350px;
+    }
+
+    @include mediaMin($mobile){
+        height: 450px;
+    }
+}

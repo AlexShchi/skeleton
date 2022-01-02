@@ -1,0 +1,23 @@
+<div class="hero">
+    <img class="hero-img"
+         src="https://via.placeholder.com/1920x450"
+         srcset="https://via.placeholder.com/1920x450 1920w,
+         https://via.placeholder.com/3840x900 3840w,
+         https://via.placeholder.com/960x225 960w, "
+         sizes="(max-width: 720px) 100vw, 1920w"
+         alt="Hero image"
+         title="Hero image"
+         decoding="async"
+         loading="lazy">
+
+{#    Используем picture если на разных разрешениях нужно показать разные изображения#}
+{#    <picture>#}
+{#        <source srcset="https://via.placeholder.com/960x225" media="(max-width: 960px)">#}
+{#        <img src="https://via.placeholder.com/1920x450" alt="" title="">#}
+{#    </picture>#}
+
+    <div class="hero-content">
+        <p class="hero-heading">Hero block heading</p>
+        <p>Hero block text</p>
+    </div>
+</div>

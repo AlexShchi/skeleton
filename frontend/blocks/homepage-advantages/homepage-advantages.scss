@@ -1,0 +1,106 @@
+@use 'sass:math';
+@import "../../styles/variables";
+@import "../../styles/mixins/media";
+@import "../../styles/mixins/grid";
+@import "../../styles/mixins/helpers";
+
+
+.advantages {
+    &-container {
+        margin: 50px 0;
+    }
+
+    @include grid($content-gap);
+
+    &__item {
+        @include grid-col(1, $content-gap);
+        text-align: center;
+
+        &-img {
+            display: block;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            position: relative;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        b {
+            display: block;
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+        }
+
+        @include mediaMin($xs) {
+            @include grid-col(math.div(1,  2), $content-gap);
+        }
+        @include mediaMin($sm) {
+            @include grid-col(math.div(1,  3), $content-gap);
+        }
+        @include mediaMin($md) {
+            @include grid-col(math.div(1,  4), $content-gap);
+        }
+        @include mediaMin($lg) {
+            @include grid-col(math.div(1,  5), $content-gap);
+        }
+    }
+
+    &.owl-carousel {
+        width: 100%;
+        margin: 0;
+
+        .advantages__item {
+            width: 100%;
+            margin: 0;
+        }
+
+        .owl-nav {
+            button {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: auto;
+                margin: auto;
+                font-size: 5rem;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                border: 1px solid #ccc;
+                border-radius: $border-radius-1;
+                transform: translate(-50%, 0);
+                background: white;
+                line-height: 0;
+                opacity: 0.7;
+                transition: opacity $transition-time;
+
+                span {
+                    display: inherit;
+                    margin-top: -8px;
+                }
+
+                &.owl-next {
+                    left: auto;
+                    right: 0;
+                    transform: translate(50%, 0);
+                }
+
+                @include mediaHover() {
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+}

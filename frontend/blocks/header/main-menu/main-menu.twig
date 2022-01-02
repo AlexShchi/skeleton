@@ -1,0 +1,36 @@
+{% set menu = [
+    {
+        name: 'Interior Doors',
+        href: '/catalog.html'
+    },
+    {
+        name: 'Exterior Doors',
+        href: '/catalog.html'
+    },
+    {
+        name: 'Steel Doors',
+        href: '/catalog.html'
+    },
+    {
+        name: 'Doors with thermal break',
+        href: '/catalog.html'
+    },
+    {
+        name: 'Fire doors',
+        href: '/catalog.html'
+    },
+    {
+        name: 'Sales of Doors',
+        href: '/catalog.html'
+    }
+]%}
+
+<nav class="main-menu">
+    <ul class="main-menu__root">
+        {% for item in menu %}
+            <li>
+                <a href="{{ item.href }}">{{ item.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

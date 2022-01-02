@@ -1,0 +1,16 @@
+@use 'sass:math';
+@mixin grid($gap){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: -#{math.div($gap, 2)};
+    margin-right: -#{math.div($gap, 2)};
+    align-items: flex-start;
+    padding: 0;
+}
+
+@mixin grid-col($size, $gap){
+    width: calc( #{$size * 100%} - #{$gap} );
+    margin-left: #{math.div($gap, 2)};
+    margin-right: #{math.div($gap, 2)};
+}

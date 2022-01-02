@@ -1,0 +1,25 @@
+{% extends "../base/base.twig" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="./assets/build-dev/homepage.css">
+{% endblock %}
+
+{% block content %}
+
+{#    {% include "../../blocks/hero/hero.twig" %}#}
+    {% include "../../blocks/homepage-main-slider/homepage-main-slider.twig" %}
+    {% include "../../blocks/homepage-main-text/homepage-main-text.twig" %}
+    {% include "../../blocks/subsections/subsections.twig" %}
+    {% include "../../blocks/gallery/gallery.twig" %}
+    {% include "../../blocks/products-carousel/products-carousel.twig" %}
+    {% include "../../blocks/homepage-advantages/homepage-advantages.twig" %}
+    {% include "../../blocks/homepage-additional-text/homepage-additional-text.twig" %}
+    {% include "../../blocks/homepage-reviews/homepage-reviews.twig" %}
+
+    <img src="../../images/drop%20down.jpg" alt="">
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="./assets/build-dev/homepage.js"></script>
+{% endblock %}

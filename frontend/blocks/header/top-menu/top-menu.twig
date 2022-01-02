@@ -1,0 +1,36 @@
+{% set menu = [
+    {
+        name: 'About Us',
+        href: '/text-page.html'
+    },
+    {
+        name: 'Delivery',
+        href: '/text-page.html'
+    },
+    {
+        name: 'Payment',
+        href: '/text-page.html'
+    },
+    {
+        name: 'For Partners',
+        href: '/text-page.html'
+    },
+    {
+        name: 'Become a Dealer',
+        href: '/text-page.html'
+    },
+    {
+        name: 'Kit Page',
+        href: '/kit.html'
+    },
+] %}
+
+<nav class="top-menu">
+    <ul>
+        {% for item in menu %}
+            <li>
+                <a href="{{ item.href }}">{{ item.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

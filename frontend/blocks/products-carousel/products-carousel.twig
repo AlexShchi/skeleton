@@ -1,0 +1,28 @@
+<div class="products-carousel-container">
+    <h2>Products Carousel Block</h2>
+    <div class="products-carousel">
+        {% for item in 1..10 %}
+            <div class="products-carousel__item">
+                <a href="#" class="products-carousel__item-img">
+                    <img src="//via.placeholder.com/800x600"
+                         srcset="//via.placeholder.com/400x300 400w, //via.placeholder.com/800x600 800w"
+                         alt="Product {{ loop.index }}"
+                         title="Product {{ loop.index }}"
+                         decoding="async"
+                         loading="lazy">
+                </a>
+                <div class="products-carousel__item-content">
+                    <a href="#" class="products-carousel__item-head">
+                        Product {{ loop.index }}
+                    </a>
+                    <div class="products-carousel__item-text">
+                        Eu cum iuvaret debitis voluptatibus, esse perfecto reformidans id has.
+                    </div>
+                    <div class="products-carousel__item-btns">
+                        <a href="#" class="btn-second">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

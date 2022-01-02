@@ -1,0 +1,18 @@
+@import "./variables";
+@import "./mixins/media";
+@import "./mixins/grid";
+@import "./mixins/helpers";
+
+
+.l-header{
+
+}
+.l-main {
+
+}
+.l-footer{
+    margin-top: auto;
+}
+.l-content {
+    @include content();
+}
