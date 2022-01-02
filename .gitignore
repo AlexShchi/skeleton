@@ -1,5 +1,4 @@
 .idea
-.yarn
 node_modules
 favicon.twig
 public
