@@ -1,8 +1,10 @@
 .idea
+.yarn
+.yarnrc
 node_modules
 favicon.twig
+frontend/favicon/favicon.svg
 public
 fonts
-.yarnrc
 yarn.lock
 yarn-error.log

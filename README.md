@@ -3,7 +3,7 @@
 (*Tested on Windows*)
 
 ##Requirement
-* yarn v3
+* yarn v3 (or not. I am not sure)
 
 ##It is a start point for any projects.
 
@@ -24,3 +24,8 @@ It will run localhost web-server for html creation. It uses BrowserSync for upda
 4) **"yarn watch"**      - run watcher for files. Create development mode assets
 5) **"yarn build-prod"** - create assets for production
 6) **"yarn new-block"**  - create new block folder with base files in *"frontend/blocks/"*
+
+##Creating new block **"yarn new-block"**
+New block will create in ***'/frontend/blocks/'***. The command has 2 parameters:
+1. block name - string, without spaces
+2. block path - string, may be empty. The root for path is '/frontend/blocks/'. Second parameter needs if we want creat directory for block in root directory. 

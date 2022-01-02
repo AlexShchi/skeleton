@@ -8,14 +8,12 @@ const fs = require('fs'),
     CssMinimizerPlugin = require('css-minimizer-webpack-plugin'),
     TerserPlugin = require('terser-webpack-plugin'),
     ImageminWebpack = require('image-minimizer-webpack-plugin'),
+    { extendDefaultPlugins } = require("svgo");
     CopyPlugin = require("copy-webpack-plugin");
 
 
 const config = {
     target: 'node',
-    experiments: {
-        asset: true
-    },
     stats: {
         all: false,
         builtAt: true,
@@ -64,26 +62,7 @@ const config = {
                 { from: "./fonts", to: "../fonts" },
                 { from: "./images", to: "../images" },
             ]
-        }),
-        new ImageminWebpack({
-            minimizerOptions: {
-                plugins: [
-                    ['gifsicle', { interlaced: true }],
-                    ['jpegtran', { progressive: true }],
-                    ['optipng', { optimizationLevel: 5 }],
-                    [
-                        'svgo',
-                        {
-                            plugins: [
-                                {
-                                    removeViewBox: false,
-                                },
-                            ],
-                        },
-                    ],
-                ],
-            },
-        }),
+        })
     ],
     module: {
         rules: [
@@ -105,7 +84,39 @@ const config = {
                 parallel: true,
                 // sourceMap: options.isDev,
             }),
-            new TerserPlugin()
+            new TerserPlugin(),
+            new ImageminWebpack({
+                minimizer: {
+                    implementation: ImageminWebpack.imageminMinify,
+                    options: {
+                        // Lossless optimization with custom option
+                        // Feel free to experiment with options for better result for you
+                        plugins: [
+                            ["gifsicle", { interlaced: true }],
+                            ["jpegtran", { progressive: true }],
+                            ["optipng", { optimizationLevel: 5 }],
+                            // Svgo configuration here https://github.com/svg/svgo#configuration
+                            [
+                                "svgo",
+                                {
+                                    plugins: extendDefaultPlugins([
+                                        {
+                                            name: "removeViewBox",
+                                            active: false,
+                                        },
+                                        {
+                                            name: "addAttributesToSVGElement",
+                                            params: {
+                                                attributes: [{ xmlns: "http://www.w3.org/2000/svg" }],
+                                            },
+                                        },
+                                    ]),
+                                },
+                            ],
+                        ],
+                    },
+                },
+            }),
         ]
     },
 
