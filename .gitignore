@@ -5,6 +5,5 @@ node_modules
 favicon.twig
 frontend/favicon/favicon.svg
 public
-fonts
 yarn.lock
 yarn-error.log
