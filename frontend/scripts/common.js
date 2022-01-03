@@ -18,3 +18,8 @@ import './plugins/goals';
 2) text page
 3) kit page
 */
+
+/*TODO: study owl carousel ans slick slider. Choose one of them*/
+/*TODO: create elements kit*/
+/*TODO: change imagemin svgo settings https://github.com/svg/svgo#configuration*/
+/*TODO: Write colors by map, like in online_incestment*/
